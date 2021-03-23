@@ -8,10 +8,12 @@ PDB database and search for protein ID: [1O7S](https://www.rcsb.org/structure/1O
 ## Searching human Siglec-7 Homologs: 
 First, it is required to save the sequence of Siglec-7  into the PIR format readable by MODELLER (file "query.ali"). We will be referring Siglec-7 sequence as a query sequence and given the name 'Query' through this tutorial and in the script scripts.
 
+```
 >P1;Query
 sequence:Query:::::::0.00: 0.00
 GQKSNRKDYSLTMQSSVTVQEGMCVHVRCSFSYPVDSQTDSDPVHGYWFRAGNDISWKAPVATNNPAWAVQEETR
 DRFHLLGDPQTKNCTLSIRDARMSDAGRYFFRMEKGNIKWNYKYDQLSVNVT*
+```
 
 The first line contains the sequence name, in the format ">P1;name". The second line with ten fields separated by colons generally contains information about the structure file, if applicable. Only two of these fields are used for sequences, "sequence" and "Query" (the model file name). The rest of the file contains the Query sequence, with "*" marking its end. The standard one-letter amino acid codes (upper case) are used.
 
