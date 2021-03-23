@@ -1,5 +1,5 @@
 # HomologyModeling
-This tutorial aims to model modeling the structure of Siglec-7 using the MODELLER (https://salilab.org/modeller). 
+This tutorial aims to model modeling the structure of Siglec-7 using the [MODELLER](https://salilab.org/modeller). 
 
 **1. Template Selection**: PDB database and search for protein ID: 1O7S (The second letter is O as in Oxford and not zero). 1O7S is 1.7 A resolution structure of human Siglec-7, a sialic acid lectin. Siglec-7 is N-glycosylated at N107, and it binds with sialic acids and their analogs (See Fig. 1)
 
