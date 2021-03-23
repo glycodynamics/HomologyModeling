@@ -26,22 +26,25 @@ Select three hits (Siglec 3, Siglec-5 and Siglec-8). Siglec-3 (another name CD33
 ## Align Template Sequences:
 Download structures of the above three from the protein data bank webpage and save them in a directory. If you have program wget installed (Linux/Mac), structures can be downloaded using the terminal:
 
+```
 $ wget https://files.rcsb.org/view/6D48.pdb
 $ wget https://files.rcsb.org/view/2ZG2.pdb
 $ wget https://files.rcsb.org/view/2N7A.pdb
-
+```
 
 Now place the script 1_salign.py into the same directory and run this. This program will align all three structures, their sequences and creates five new files:
-
+```
 -rw-r--r--  1 sushil  staff   92982 Mar 22 13:22 2N7A_fit.pdb
 -rw-r--r--  1 sushil  staff  134157 Mar 22 13:22 2ZG2_fit.pdb
 -rw-r--r--  1 sushil  staff   80105 Mar 22 13:22 6D48_fit.pdb
 -rw-r--r--  1 sushil  staff    2286 Mar 22 13:22 fm00495.ali
 -rw-r--r--  1 sushil  staff    1256 Mar 22 13:22 fm00495.pap
 -rw-r--r--  1 sushil  staff     539 Mar 22 13:22 fm00495.tree
+```
 
 The first three files are the aligned structures of the templates. fm00495.ali contains FASTA sequences of these three templates and fm00495.pap contains multiple sequence alignment (MSA) of the three template sequences.
 
+```
 ------------------ fm00495.pap ---------------------
  _aln.pos         10        20        30        40        50        60
 2ZG2A     --------SVYELQVQKSVTVQEGLCVLVPCSFSYPWRSWYSSPPLYVYWFRDGEIPYYAEVVATNNP 
@@ -66,6 +69,7 @@ The first three files are the aligned structures of the templates. fm00495.ali c
 6D48E     ------------------------ 
 2N7AA     ------------------------ 
  _consrvd
+```
 
 
 ## Aligning Query Sequence with Templates:
@@ -73,7 +77,7 @@ Now we have to align our query sequence (file Query.ali) with the template seque
 $ mod9.25 2_align_2d_mult.py 
 
 Two new files, query-mult.ali and query-mult.pap will be created. This step will append previous 'ali' and 'pap' files and add aligned sequences for our query sequences. 
-
+```
  _aln.pos         10        20        30        40        50        60
 2ZG2A     --------SVYELQVQKSVTVQEGLCVLVPCSFSYPWRSWYSSPPLYVYWFRDGEIPYYAEVVATNNP 
 6D48E     -------DPNFWLQVQESVTVQEGLCVLVPCTFFHPIPYYDKNSPVHGYWFREGAIISRDSPVATNKL 
@@ -102,11 +106,13 @@ Query     QL--S-------------------V------------N-----------------V------------
 Query     ------T----------------- 
  _consrvd
 
+```
 
 ## Model Siglec-7 Structure:
 Now you can run the third script 3_model_protein.py to start homology modeling. 
-
+```
 $ mod9.25 3_model_protein.py
+```
 
 For learning, this script will generate only 10 models, but that can be changed by changing the value of a.ending_model in the script. In about ~ 5 minutes, the Modeller will generate 10 models and print their dope scores at the end of 3_model_protein.log file. 
 
@@ -115,5 +121,6 @@ For learning, this script will generate only 10 models, but that can be changed 
 
 ## Acknowledgment:
 This tutorial had been adopted from Modeller tutorials. Please look into MODELLER tutorials for details. https://salilab.org/modeller/tutorial/ 
+
 
 
