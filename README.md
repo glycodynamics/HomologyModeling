@@ -1,10 +1,11 @@
 # HomologyModeling
 This tutorial aims to model modeling the structure of Siglec-7 using the [MODELLER](https://salilab.org/modeller). 
 
-## 1. Template Selection: 
-PDB database and search for protein ID: [1O7S](https://www.rcsb.org/structure/1O7S) (The second letter is O as in Oxford and not zero) or [1O7V](https://www.rcsb.org/structure/1O7V). 1O7S is 1.7 A resolution structure of human Siglec-7, a sialic acid lectin. Siglec-7 is N-glycosylated at N107, and it binds with sialic acids and their analogs (See Fig. 1)
+## Template Selection: 
+PDB database and search for protein ID: [1O7S](https://www.rcsb.org/structure/1O7S) (The second letter is O as in Oxford and not zero) or [1O7V](https://www.rcsb.org/structure/1O7V). 1O7S is 1.7 A resolution structure of human Siglec-7, a sialic acid lectin. Siglec-7 is N-glycosylated at N107, and it binds with sialic acids and their analogs (See Fig. below)
+![fig-1-hSig7-complex](https://user-images.githubusercontent.com/10772897/112083562-47527780-8b55-11eb-9143-99b7cb9a0d91.png)
 
-## 2. Searching human Siglec-7 Homologs: 
+## Searching human Siglec-7 Homologs: 
 First, it is required to save the sequence of Siglec-7  into the PIR format readable by MODELLER (file "query.ali"). We will be referring Siglec-7 sequence as a query sequence and given the name 'Query' through this tutorial and in the script scripts.
 
 >P1;Query
@@ -22,7 +23,7 @@ The first two hits with nearly 100% sequence identity are naturally the structur
 Select three hits (Siglec 3, Siglec-5 and Siglec-8). Siglec-3 (another name CD33), Siglec-5 (CD170), Siglec-7 (CD328), and Siglec-8 are all CD33 related Siglecs and have similar structure and functions. In this tutorial, we will choose structures of Siglec-3 (PDB ID: 6D48), Siglec-5 (PDB ID: 2ZG2), and Siglec-8 (2N7A) to build the structure of Siglec-7.
 
 
-## 3. Align Template Sequences:
+## Align Template Sequences:
 Download structures of the above three from the protein data bank webpage and save them in a directory. If you have program wget installed (Linux/Mac), structures can be downloaded using the terminal:
 
 $ wget https://files.rcsb.org/view/6D48.pdb
@@ -67,7 +68,7 @@ The first three files are the aligned structures of the templates. fm00495.ali c
  _consrvd
 
 
-## 4. Aligning Query Sequence with Templates:
+## Aligning Query Sequence with Templates:
 Now we have to align our query sequence (file Query.ali) with the template sequences' MSA. This can be done by running the second script:
 $ mod9.25 2_align_2d_mult.py 
 
@@ -102,7 +103,7 @@ Query     ------T-----------------
  _consrvd
 
 
-## 5. Model Siglec-7 Structure:
+## Model Siglec-7 Structure:
 Now you can run the third script 3_model_protein.py to start homology modeling. 
 
 $ mod9.25 3_model_protein.py
