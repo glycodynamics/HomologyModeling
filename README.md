@@ -1,4 +1,4 @@
-# HomologyModeling
+# Homology Modeling
 This tutorial aims to model modeling the structure of Siglec-7 using the [MODELLER](https://salilab.org/modeller). You can download by clicking in Code --> Download Zip. Unzip this file and go inside modeller directory. 
 
 ## Template Selection: 
