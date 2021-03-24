@@ -8,7 +8,7 @@ env.io.atom_files_directory = './:../atom_files/'
 
 
 aln = alignment(env)
-for (code, chain) in (('2ZG2', 'A'), ('6D48', 'E')):
+for (code, chain) in (('2ZG2', 'A'), ('6D48', 'E'),('2N7A', 'A')):
     mdl = model(env, file=code, model_segment=('FIRST:'+chain, 'LAST:'+chain))
     aln.append_model(mdl, atom_files=code, align_codes=code+chain)
 
