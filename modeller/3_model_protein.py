@@ -70,11 +70,11 @@ class MyModel(automodel):
 
 a = MyModel(env,
             alnfile  = 'query-mult.ali',  # alignment filename
-            knowns   = (('2ZG2A'), ('6D48E')),     # codes of the templates
+            knowns   = (('2ZG2A'), ('6D48E'), ('2N7AA')),     # codes of the templates
             sequence = 'Query',
             assess_methods=(assess.DOPE, assess.GA341)) # code of the target
 a.starting_model= 1                     # index of the first model
-a.ending_model  = 10                    # index of the last model
+a.ending_model  = 20                    # index of the last model
                                         # (determines how many models to calculate)
 a.library_schedule = autosched.slow     # Very thorough VTFM optimization
 a.max_var_iterations = 50
