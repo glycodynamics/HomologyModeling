@@ -1,5 +1,5 @@
 # HomologyModeling
-This tutorial aims to model modeling the structure of Siglec-7 using the [MODELLER](https://salilab.org/modeller). 
+This tutorial aims to model modeling the structure of Siglec-7 using the [MODELLER](https://salilab.org/modeller). You can download by clicking in Code --> Download Zip. Unzip this file and go inside modeller directory. 
 
 ## Template Selection: 
 PDB database and search for protein ID: [1O7S](https://www.rcsb.org/structure/1O7S) (The second letter is O as in Oxford and not zero) or [1O7V](https://www.rcsb.org/structure/1O7V). 1O7S is 1.7 A resolution structure of human Siglec-7, a sialic acid lectin. Siglec-7 is N-glycosylated at N107, and it binds with sialic acids and their analogs (See Fig. below)
@@ -26,15 +26,21 @@ Select three hits (Siglec 3, Siglec-5 and Siglec-8). Siglec-3 (another name CD33
 
 
 ## Align Template Sequences:
-Download structures of the above three from the protein data bank webpage and save them in a directory. If you have program wget installed (Linux/Mac), structures can be downloaded using the terminal:
+Download structures of the above three from the protein data bank webpage and save them inside modeller direcotry. If you have program wget installed (Linux/Mac), structures can also be downloaded using the terminal:
 
 ```
-$ wget https://files.rcsb.org/view/6D48.pdb
-$ wget https://files.rcsb.org/view/2ZG2.pdb
-$ wget https://files.rcsb.org/view/2N7A.pdb
+wget https://files.rcsb.org/view/6D48.pdb
+wget https://files.rcsb.org/view/2ZG2.pdb
+wget https://files.rcsb.org/view/2N7A.pdb
+wget https://files.rcsb.org/view/1O7V.pdb
 ```
 
-Now place the script 1_salign.py into the same directory and run this. This program will align all three structures, their sequences and creates five new files:
+Now place the script 1_salign.py into the same directory and run:
+```
+#mod9.25 script 1_salign.py
+```
+
+Upon successful completion, this program will align all three structures, their sequences and creates five new files:
 ```
 -rw-r--r--  1 sushil  staff   92982 Mar 22 13:22 2N7A_fit.pdb
 -rw-r--r--  1 sushil  staff  134157 Mar 22 13:22 2ZG2_fit.pdb
@@ -47,8 +53,7 @@ Now place the script 1_salign.py into the same directory and run this. This prog
 The first three files are the aligned structures of the templates. fm00495.ali contains FASTA sequences of these three templates and fm00495.pap contains multiple sequence alignment (MSA) of the three template sequences.
 
 ```
------------------- fm00495.pap ---------------------
- _aln.pos         10        20        30        40        50        60
+_aln.pos         10        20        30        40        50        60
 2ZG2A     --------SVYELQVQKSVTVQEGLCVLVPCSFSYPWRSWYSSPPLYVYWFRDGEIPYYAEVVATNNP 
 6D48E     -------DPNFWLQVQESVTVQEGLCVLVPCTFFHPIPYYDKNSPVHGYWFREGAIISRDSPVATNKL 
 2N7AA     MEGDRQYGDGYLLQVQELVTVQEGLSVHVPCSFSYPQDGWTDSDPVHGYWFRAGDRPYQDAPVATNNP 
@@ -71,53 +76,58 @@ The first three files are the aligned structures of the templates. fm00495.ali c
 6D48E     ------------------------ 
 2N7AA     ------------------------ 
  _consrvd
+
 ```
 
 
 ## Aligning Query Sequence with Templates:
-Now we have to align our query sequence (file Query.ali) with the template sequences' MSA. This can be done by running the second script:
-$ mod9.25 2_align_2d_mult.py 
-
-Two new files, query-mult.ali and query-mult.pap will be created. This step will append previous 'ali' and 'pap' files and add aligned sequences for our query sequences. 
+Now we have to align our query sequence (file _Query.ali_) with the template sequences' MSA. This can be done by running the second script:
 ```
- _aln.pos         10        20        30        40        50        60
+mod9.25 2_align_2d_mult.py 
+```
+Two new files, query-mult.ali and _query-mult.pap_ will be created. This step will append previous 'ali' and 'pap' files and add aligned sequences for our query sequences. 
+```
 2ZG2A     --------SVYELQVQKSVTVQEGLCVLVPCSFSYPWRSWYSSPPLYVYWFRDGEIPYYAEVVATNNP 
 6D48E     -------DPNFWLQVQESVTVQEGLCVLVPCTFFHPIPYYDKNSPVHGYWFREGAIISRDSPVATNKL 
 2N7AA     MEGDRQYGDGYLLQVQELVTVQEGLSVHVPCSFSYPQDGWTDSDPVHGYWFRAGDRPYQDAPVATNNP 
-Query     --GQKSNRKDYSLTMQSSVTVQEGMCVHVRCSFSYPVDSQTDSDPVHGYWFRAGNDISWKAPVATNNP 
- _consrvd             *  *  ******  * * * *  *        *   **** *        ****
+Query     GQKSNRKDYSLTMQSSVTVQEGMCVHVRCSFSYPVDSQTDSDPVHGYWFRAGNDISWKAPVATNNPAW 
+ _consrvd              *    *       *
 
  _aln.p   70        80        90       100       110       120       130
-2ZG2A     DRRVKPETQGRFRLLGDVQKKNCSLSIGDARMEDTGSYFFRVERGRDVKYSYQ------QNKLNLEVT 
-6D48E     DQEVQEETQGRFRLLGDPSRNNCSLSIVDARRRDNGSYFFRMERGS-TKYSYK------SPQLSVHVT 
-2N7AA     DREVQAETQGRFQLLGDIWSNDCSLSIRDARKRDKGSYFFRLERGS-MKWSYKSQLNYKTKQLSVFVT 
-Query     AWAVQEETRDRFHLLGDPQTKNCTLSIRDARMSDAGRYFFRME-----KGNI---------KWNYKYD 
- _consrvd    *  **  ** ****     * *** ***  * * **** *     *
+2ZG2A     DRRVKPETQGRFRLLGDVQKKNCSLSIGDARMEDTGSYFFRVERGRDVKYSYQQNKLNLEVTALIEKP 
+6D48E     DQEVQEETQGRFRLLGDPSRNNCSLSIVDARRRDNGSYFFRMERGS-TKYSYK-------SPQLSVHV 
+2N7AA     DREVQAETQGRFQLLGDIWSNDCSLSIRDARKRDKGSYFFRLERGS-MKWSYK-SQLNYKTKQLSVFV 
+Query     AVQEETRDRFHLLGDPQTKNCTLSIRDARMSDAGRYFFRMEKGNIKWNYKYDQ-LSVNVT-------- 
+ _consrvd                        *
 
  _aln.pos  140       150       160       170       180       190       200
-2ZG2A     ALIEKPDIHFLEPLESGRPTRLSCSLPGSCEAGPPLTFSWTGNALSPLDPETTRSSELTLTPRPEDHG 
-6D48E     DLT----------------------------------------------------------------- 
-2N7AA     ALTHG--------------------SLVPR-------------------------------------- 
-Query     QL--S-------------------V------------N-----------------V------------ 
- _consrvd  *
+2ZG2A     DIHFLEPLESGRPTRLSCSLPGSCEAGPPLTFSWTGNALSPLDPETTRSSELTLTPRPEDHGTNLTCQ 
+6D48E     -------------------------------------------------------------------- 
+2N7AA     -------------------------------------------------------------------- 
+Query     -------------------------------------------------------------------- 
+ _consrvd
 
  _aln.pos    210       220
-2ZG2A     TNLTCQMKRQQVTTERTVQLNVSL 
-6D48E     ------------------------ 
-2N7AA     ------------------------ 
-Query     ------T----------------- 
+2ZG2A     MKRQQVTTERTVQLNVSL 
+6D48E     -------TDLT------- 
+2N7AA     -------TALTHGSLVPR 
+Query     ------------------ 
  _consrvd
+
 
 ```
 
 ## Model Siglec-7 Structure:
 Now you can run the third script 3_model_protein.py to start homology modeling. 
+
 ```
 $ mod9.25 3_model_protein.py
 ```
 
-For learning, this script will generate only 10 models, but that can be changed by changing the value of a.ending_model in the script. In about ~ 5 minutes, the Modeller will generate 10 models and print their dope scores at the end of 3_model_protein.log file. 
+For learning, this script will generate only 20 models, but that can be changed by changing the value of a.ending_model in the script. In about ~ 10 minutes, the Modeller will generate 10 models and print their dope scores at the end of 3_model_protein.log file. 
 
+
+##Loop modeling
 
 
 
