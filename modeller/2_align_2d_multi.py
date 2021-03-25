@@ -18,4 +18,3 @@ aln.align2d(overhang=0, gap_penalties_1d=(-100, 0),
             gap_penalties_2d=(3.5, 3.5, 3.5, 0.2, 4.0, 6.5, 2.0, 0., 0.),
 aln.write(file='query-mult.ali', alignment_format='PIR')
 aln.write(file='query-mult.pap', alignment_format='PAP')
-
