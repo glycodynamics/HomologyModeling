@@ -22,7 +22,7 @@ Choose Protein Blast, paste query sequence in "Enter Query Sequence" box, and se
 
 The first two hits with nearly 100% sequence identity are naturally the structures of Siglec-7. We have selected a protein with a known structure so that we can compare the homology modeling results at the end. However, we will NOT be using Siglec-7 structural information to model our homology model. Thus, it must be used as template structures. 
 
-Select three hits (Siglec 3, Siglec-5 and Siglec-8). Siglec-3 (another name CD33), Siglec-5 (CD170), Siglec-7 (CD328), and Siglec-8 are all CD33 related Siglecs and have similar structure and functions. In this tutorial, we will choose structures of Siglec-3 (PDB ID: 6D48), Siglec-5 (PDB ID: 2ZG2), and Siglec-8 (2N7A) to build the structure of Siglec-7.
+Select three hits (Siglec 3, Siglec-5 and Siglec-8). Siglec-3 (another name CD33), Siglec-5 (CD170), Siglec-7 (CD328), and Siglec-8 are all CD33 related Siglecs and have similar structure and functions. In this tutorial, we will choose structures of Siglec-3 (PDB ID: [6D48](https://files.rcsb.org/view/6D48.pdb)), Siglec-5 (PDB ID: [2ZG2] (https://files.rcsb.org/view/2GZ2.pdb)), and Siglec-8 ([2N7A](https://files.rcsb.org/view/2N7A.pdb)) to build the structure of Siglec-7.
 
 
 ## Align Template Sequences:
@@ -37,7 +37,7 @@ wget https://files.rcsb.org/view/1O7V.pdb
 
 Now place the script 1_salign.py into the same directory and run:
 ```
-#mod9.25 script 1_salign.py
+mod9.25 script 1_salign.py
 ```
 
 Upon successful completion, this program will align all three structures, their sequences and creates five new files:
@@ -124,11 +124,21 @@ Now you can run the third script 3_model_protein.py to start homology modeling.
 $ mod9.25 3_model_protein.py
 ```
 
-For learning, this script will generate only 20 models, but that can be changed by changing the value of a.ending_model in the script. In about ~ 10 minutes, the Modeller will generate 10 models and print their dope scores at the end of 3_model_protein.log file. 
-
+For learning, this script will generate only 20 models, but that can be changed by changing the value of a.ending_model in the script. In about ~ 10 minutes, the Modeller will generate 20 models and print their dope scores at the end of 3_model_protein.log file. 
 
 ##Loop modeling
 
+Once completed, look at the bottom of the file -3_model_protein.log-. Among 20 models, model 'Query.B99990004.pdb' has the lowest DOPE score of -12612.75, and we choose this model to do further loop refinement. When superimposing homology models to the crystal structure of Siglec-7 in PyMOL, we can see there mainly two regions where homology modeled structures vary from the crystal structure (red) (see Fig. below)
+
+![loops](https://user-images.githubusercontent.com/10772897/112399483-4bf16a00-8cd4-11eb-9498-e900d0181621.png)
+
+To models both loop, run fourth script mod9.25 4_model_loops.py 
+
+```
+mod9.25 4_model_loops.py 
+```
+
+This will generate 2 models of the structure Query.B99990004.pdb, and the new models will be named as Query.BL00010001, Query.BL00020001 ... and so on. Model with the lowest DOPE score will be selected as the final model for glycosylation and further study.
 
 
 ## Acknowledgment:
