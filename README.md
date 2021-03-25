@@ -149,7 +149,7 @@ Now use Query.BL000170001.pdb PDB file and add N-glycan using [GLYCAM-web-server
 
 
 ## Acknowledgment:
-This tutorial had been adopted from Modeller tutorials. Please look into MODELLER tutorials for details. https://salilab.org/modeller/tutorial/ 
+This tutorial had been adopted from Modeller tutorials. Further details can be seen in MODELLER tutorials. https://salilab.org/modeller/tutorial/ 
 
 
 
