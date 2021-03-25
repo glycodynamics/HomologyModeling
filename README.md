@@ -138,7 +138,14 @@ To models both loop, run fourth script mod9.25 4_model_loops.py
 mod9.25 4_model_loops.py 
 ```
 
-This will generate 2 models of the structure Query.B99990004.pdb, and the new models will be named as Query.BL00010001, Query.BL00020001 ... and so on. Model with the lowest DOPE score will be selected as the final model for glycosylation and further study.
+This will generate 2 models of the structure Query.B99990004.pdb, and the new models will be named as Query.BL00010001, Query.BL00020001 ... and so on. Model with the lowest DOPE score will be selected as the final model for glycosylation and further study. In out models Query.BL00010001,
+
+![loop-comparison](https://user-images.githubusercontent.com/10772897/112401419-80672500-8cd8-11eb-8691-b9089505d817.png)
+
+Among 20 loop models Query.BL000170001 has the lowest energy, but both the loops are still not as seen in PDB ID: 1O7V (left figure below). These two loops may be very flexible, and the loop conformations seen in the 1O7V may not be the only conformation it can adopt. Superimposing another PDB structure of Siglec-7 (right figure below) shows that both loops are missing in the X-ray structure (dotted lines). This is an indication that the loops are very flexible, and modeled conformations could be realistic.  
+
+Now use Query.BL000170001.pdb PDB file and add N-glycan using [GLYCAM-web-server] (www.glycam.org) 
+
 
 
 ## Acknowledgment:
